@@ -28,11 +28,13 @@ def prepare_folder(input_format, directory):
 
     if not messagebox.askyesno("Confirmation",f"You are about to organize files of type '{user_input}' into the folder '{folder_name}' in the selected directory.\n\nDo you want to proceed?"):
         return
+
     files_found = False
     for files in os.listdir(directory):
         if files.endswith(user_input):
             files_found = True
             break
+
     if not files_found:
         messagebox.showinfo("Not found", f"No files of the specified type were found")
         return
@@ -124,7 +126,7 @@ title_label.pack(pady=2)
 organize_button = tk.Button(
     window,
     command=organize,
-    text="Choose a File",
+    text="Choose a Folder",
     bg=BG,
     fg="white",
     width=20,
